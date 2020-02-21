@@ -11,8 +11,6 @@ jobs:
         echo "My test file" > test-file.txt
     - name: Upload artifact
       uses: actions/upload-artifact@v1
-      env:
-        GITHUB_CONTEXT: ${{ toJson(github) }}
       with:
-        name: test-file-$env.GITHUB_CONTEXT.sha
+        name: test-file-${{ github.sha }}
         path: test-file.txt
