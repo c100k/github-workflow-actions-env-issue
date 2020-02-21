@@ -14,5 +14,5 @@ jobs:
       env:
         GITHUB_CONTEXT: ${{ toJson(github) }}
       with:
-        name: test-file-${{ $GITHUB_CONTEXT.sha }}
+        name: test-file-${{ env.GITHUB_CONTEXT.sha }}
         path: test-file.txt
