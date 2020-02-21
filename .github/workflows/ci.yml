@@ -5,10 +5,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
-    - name: Dump GitHub context
-      env:
-        GITHUB_CONTEXT: ${{ toJson(github) }}
-      run: echo "$GITHUB_CONTEXT"
     - name: Create File
       run: |
         touch test-file.txt
@@ -16,5 +12,5 @@ jobs:
     - name: Upload artifact
       uses: actions/upload-artifact@v1
       with:
-        name: test-file-${{ env.GITHUB_SHA }}
+        name: test-file-${{ toJson(github).sha }}
         path: test-file.txt
