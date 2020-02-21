@@ -12,5 +12,5 @@ jobs:
     - name: Upload artifact
       uses: actions/upload-artifact@v1
       with:
-        name: test-file-${{ github.sha }}
+        name: test-file-${{ github.run_number }}
         path: test-file.txt
